@@ -1,0 +1,13 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+label, input, button {
+  padding: 5px;
+  margin: 5px;
+}

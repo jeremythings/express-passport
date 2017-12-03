@@ -1,0 +1,60 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div
+    a(href="#{locals.urlhttp}/")
+      button(type="button") Use http
+    a(href="#{locals.urlhttps}/")
+      button(type="button") Use Https
+  p Login status: #{user}
+  p #{success}
+  p #{error}
+  hr
+  h1 Login
+  if (!locals.currentusername)
+    form(action='/auth/login',method='post')
+      div
+        label(for='username') Username
+        input(id='username',name='username',type='text',value='',placeholder='@')
+      div
+        label(for='password') password
+        input(id='password',name='password',type='password',value='',placeholder='')
+      div
+        input(type='submit',value='Login')
+  else
+    a(href="/auth/logout")
+      button(type="button") Logout
+  hr
+  h1 Register
+  if (!locals.currentusername)
+    form(action='/auth/register',method='post')
+        div
+          label(for='usernamereg') Username
+          input(id='usernamereg',name='usernamereg',type='text',value='',placeholder='@')
+        div
+          label(for='passwordreg') password
+          input(id='passwordreg',name='passwordreg',type='password',value='',placeholder='')
+        div
+          input(type='submit',value='Register')
+  hr
+  h2 Cookies
+  p You should not see any cookies as the passport session cookie is http-only
+  script.
+    function listCookies() {
+      var theCookies = document.cookie.split(';');
+      var aString = '';
+      for (var i = 0 ; i < theCookies.length; i++) {
+          aString += theCookies[i] + "<br>";
+      }
+      return aString;
+    }
+    document.write(listCookies());
+  h2 Browser Info
+  script.
+    document.write("Browser Name: "+  navigator.appName + '<br/>');
+    document.write("Browser Version: "+  navigator.appVersion + '<br/>');
+    document.write("Cookies Enabled: "+  navigator.cookieEnabled + '<br/>');
+    document.write("Platform: "+navigator.platform + '<br/>');
+    document.write("User-agent header: " +navigator.userAgent);
