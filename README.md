@@ -15,7 +15,7 @@ It Allows for:
 - Login of existing users
 - Logout
 - Registration of new users
-  - currently set to not automatically log new users in 
+  - currently set to not automatically log new users in
 
 ### Running
 
@@ -24,10 +24,17 @@ To install and run, download this to a folder of your choice then run:
 ``` bash
 npm install
 cd certs
-./createkeys.sh
+bash createkeys.sh
 cd ..
 npm start
 ```
+You can then browse using http or https on the ports set (defailt 3000 and 3443).
+
+Note that within the application you can switch between http and https using the buttons provided.
+
+### Users
+
+There are some default users and password set, checkout the *my-modules/db.js*. You can of course register your own users.
 
 ### Certificates
 
